@@ -1,0 +1,9 @@
+Django>=3.2,<5.0
+translatepy
+langdetect
+requests
+scikit-learn
+
+# For voice message transcription (optional)
+# speechrecognition
+# pydub
