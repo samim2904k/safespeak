@@ -1,0 +1,541 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SafeSpeak Chat</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+  <link rel="icon" href="{% static 'images/favicon/favicon.png' %}" type="image/x-icon" />
+  <link rel="shortcut icon" href="{% static 'images/favicon/favicon.png' %}" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/date-picker.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="screen" id="color" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/themify-icons.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/tour.css' %}" />
+  
+  <link rel="stylesheet" href="{% static 'css/speech.css' %}" />
+
+  <style>
+    .message-input {
+      /* top:  ;  */
+      left: 50%;
+      transform: translate(-46%, 1%);
+    }
+  </style>
+</head>
+
+<body class="sidebar-active">
+  <div class="chitchat-loader">
+    <div>
+      <img src="{% static 'images/logo/logo_big.png' %}" alt="" />
+      <h3>Simple, secure messaging for fast connect to world..!</h3>
+    </div>
+  </div>
+  <div class="chitchat-container sidebar-toggle">
+    <nav class="main-nav on custom-scroll">
+      <!-- <div class="logo-warpper"><a href="messenger.html"><img src="{% static 'images/logo/logo.png" alt="logo"/></a></div> -->
+      <div class="sidebar-main">
+        <ul class="sidebar-top">
+          
+          
+        </ul>
+        <ul class="sidebar-bottom">
+          <li>
+            <a class="icon-btn btn-light button-effect mode" href="messenger.html#" data-tippy-content="Theme Mode"
+              data-intro="Change mode"><i class="fa fa-moon-o"></i></a>
+          </li>
+          <li>
+            <a class="icon-btn btn-light"  onclick="logoutConfirm()" data-tippy-content=" SignOut">
+              <i class="fa fa-power-off"> </i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="chitchat-main small-sidebar" id="content">
+      <div class="chat-content tabto active">
+        <div class="messages custom-scroll active" id="chating">
+          <div class="contact-details">
+            <div class="row">
+              <form class="form-inline search-form">
+                <div class="form-group">
+                  <input class="form-control-plaintext" type="search" placeholder="Search.." />
+                  <div class="icon-close close-search">
+                    <i data-feather="x"> </i>
+                  </div>
+                </div>
+              </form>
+              <div class="col-7">
+                <div class="d-flex left">
+                  <div class="media-left">
+                    <div class="profile online menu-trigger">
+                      <img class="bg-img" src="{% static 'images/contact/Bot.jpeg' %}" alt="Avatar" />
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h5 class="mb-0">SafeSpeak</h5>
+                    <div class="badge badge-success">Active</div>
+                  </div>
+                  <div class="media-right">
+                    <h3>Feel Free To Ask Anything</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-chat">
+            <ul class="chatappend">
+              
+            </ul>
+          </div>
+        </div>
+        <div class="messages custom-scroll" id="blank">
+          <div class="contact-details">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex left">
+                  <div class="media-left me-3">
+                    <div class="profile online menu-trigger">
+                      <img class="bg-img" src="{% static 'images/contact/Bot.jpeg' %}" alt="Avatar" />
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h5>SafeSpeak</h5>
+                    <h6>Last Seen 5 hours</h6>
+                  </div>
+                  <div class="media-right">
+                    <ul>
+                      <li>
+                        <a class="icon-btn btn-light button-effect mute" href="messenger.html#"><i
+                            class="fa fa-volume-up"></i></a>
+                      </li>
+                      <li>
+                        <a class="icon-btn btn-light search search-right" href="messenger.html#">
+                          <i data-feather="search"></i></a>
+                        <form class="form-inline search-form">
+                          <div class="form-group">
+                            <input class="form-control-plaintext" type="search" placeholder="Search.." />
+                            <div class="icon-close close-search">
+                              <i data-feather="x"></i>
+                            </div>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <a class="icon-btn btn-light button-effect mobile-sidebar" href="messenger.html#"><i
+                            data-feather="chevron-left"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                
+              </div>
+            </div>
+          </div>
+          <div class="contact-chat">
+            <div class="rightchat animat-rate">
+              <div class="bg_circle">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div class="cross"></div>
+              <div class="cross1"></div>
+              <div class="cross2"></div>
+              <div class="dot"></div>
+              <div class="dot1"></div>
+            </div>
+          </div>
+          <div class="call-list-center">
+            <img src="{% static 'images/chat.png' %}" alt="" />
+            <div class="animated-bg"><i></i><i></i><i></i></div>
+            <p>Select a chat to read messages</p>
+          </div>
+        </div>
+        <div class="messages custom-scroll" id="group_chat">
+          <div class="contact-details">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex left">
+                  <div class="media-left me-3">
+                    <div class="profile online menu-trigger">
+                      <img class="bg-img" src="{% static 'images/avtar/teq.jpg' %}" alt="Avatar" />
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h5>Tech Ninjas</h5>
+                    <div class="badge badge-success">Active</div>
+                  </div>
+                  <div class="media-right">
+                    <ul>
+                      <li>
+                        <a class="icon-btn btn-light button-effect mute" href="messenger.html#"><i
+                            class="fa fa-volume-up"></i></a>
+                      </li>
+                      <li>
+                        <a class="icon-btn btn-light search search-right" href="messenger.html#">
+                          <i data-feather="search"></i></a>
+                        <form class="form-inline search-form">
+                          <div class="form-group">
+                            <input class="form-control-plaintext" type="search" placeholder="Search.." />
+                            <div class="icon-close close-search">
+                              <i data-feather="x"></i>
+                            </div>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <a class="icon-btn btn-light button-effect mobile-sidebar" href="messenger.html#"><i
+                            data-feather="chevron-left"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                
+              </div>
+            </div>
+          </div>
+          <div class="contact-chat">
+            <ul class="chatappend">
+              <li class="groupuser">
+                <h4>Jewellery project</h4>
+                <div class="gr-chat-friend-toggle">
+                  <a class="icon-btn btn-sm pull-right add-grbtn outside" href="messenger.html#"
+                    data-tippy-content="Add User"><i data-feather="plus"></i></a>
+                  <div class="gr-chat-frind-content">
+                    <ul class="chat-main">
+                      <li>
+                        <div class="chat-box">
+                          <div class="d-flex">
+                            <div class="profile offline">
+                              <img class="bg-img" src="{% static 'images/contact/1.jpg' %}" alt="Avatar" />
+                            </div>
+                            <div class="details">
+                              <h5>SafeSpeak</h5>
+                              <h6>Alabma , USA</h6>
+                            </div>
+                            <div class="flex-grow-1">
+                              <a class="icon-btn btn-outline-primary btn-sm" href="messenger.html#"
+                                data-tippy-content="Add User"><i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="chat-box">
+                          <div class="d-flex">
+                            <div class="profile">
+                              <img class="bg-img" src="{% static 'images/contact/Bot.jpeg' %}" alt="Avatar" />
+                            </div>
+                            <div class="details">
+                              <h5>SafeSpeak</h5>
+                              <h6>Alabma , USA</h6>
+                            </div>
+                            <div class="flex-grow-1">
+                              <a class="icon-btn btn-outline-primary btn-sm" href="messenger.html#"
+                                data-tippy-content="Add User"><i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="chat-box">
+                          <div class="d-flex">
+                            <div class="profile">
+                              <img class="bg-img" src="{% static 'images/contact/3.jpg' %}" alt="Avatar" />
+                            </div>
+                            <div class="details">
+                              <h5>SafeSpeak</h5>
+                              <h6>Alabma , USA</h6>
+                            </div>
+                            <div class="flex-grow-1">
+                              <a class="icon-btn btn-outline-primary btn-sm" href="messenger.html#"
+                                data-tippy-content="Add User"><i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="chat-box">
+                          <div class="d-flex">
+                            <div class="profile unreachable">
+                              <img class="bg-img" src="{% static 'images/contact/4.jpg' %}" alt="Avatar" />
+                            </div>
+                            <div class="details">
+                              <h5>SafeSpeak</h5>
+                              <h6>Alabma , USA</h6>
+                            </div>
+                            <div class="flex-grow-1">
+                              <a class="icon-btn btn-outline-primary btn-sm" href="messenger.html#"
+                                data-tippy-content="Add User"><i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="gr-profile dot-btn dot-success grow">
+                  <img class="bg-img" src="{% static 'images/avtar/3.jpg' %}" alt="Avatar" />
+                </div>
+                <div class="gr-profile dot-btn dot-success grow">
+                  <img class="bg-img" src="{% static 'images/avtar/5.jpg' %}" alt="Avatar" />
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="messages custom-scroll" id="group_blank">
+          <div class="contact-details">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex left">
+                  <div class="media-left me-3">
+                    <div class="profile online menu-trigger">
+                      <img class="bg-img" src="{% static 'images/avtar/family.jpg' %}" alt="Avatar" />
+                    </div>
+                  </div>
+                  <div class="flex-grow-1">
+                    <h5>Family Ties</h5>
+                    <h6>Last Seen 2 hours</h6>
+                  </div>
+                  <div class="media-right">
+                    <ul>
+                      <li>
+                        <a class="icon-btn btn-light button-effect mute" href="messenger.html#"><i
+                            class="fa fa-volume-up"></i></a>
+                      </li>
+                      <li>
+                        <a class="icon-btn btn-light search search-right" href="messenger.html#">
+                          <i data-feather="search"></i></a>
+                        <form class="form-inline search-form">
+                          <div class="form-group">
+                            <input class="form-control-plaintext" type="search" placeholder="Search.." />
+                            <div class="icon-close close-search">
+                              <i data-feather="x"></i>
+                            </div>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <a class="icon-btn btn-light button-effect mobile-sidebar" href="messenger.html#"><i
+                            data-feather="chevron-left"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                
+              </div>
+            </div>
+          </div>
+          <div class="contact-chat">
+            <div class="rightchat animat-rate">
+              <div class="bg_circle">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div class="cross"></div>
+              <div class="cross1"></div>
+              <div class="cross2"></div>
+              <div class="dot"></div>
+              <div class="dot1"></div>
+            </div>
+          </div>
+          <div class="call-list-center">
+            <img src="{% static 'images/chat.png' %}" alt="" />
+            <div class="animated-bg"><i></i><i></i><i></i></div>
+            <p>Select a chat to read messages</p>
+          </div>
+        </div>
+        <div class="message-input">
+          <div class="wrap emojis-main">
+            <div class="contact-poll">
+              <a class="icon-btn btn-outline-primary outside" href="#"><i class="fa fa-user"></i></a>
+              
+            </div>
+            <input class="setemoj" id="textInput" type="text" placeholder="Write your message..." /><a
+              class="icon-btn btn-outline-primary button-effect me-2 ms-2"  data-bs-toggle="modal" data-bs-target="#msgcallModal" href="messenger.html#"><i
+                data-feather="mic"> </i></a>
+            <button class="submit icon-btn btn-primary disabled" id="send-msg" disabled="disabled">
+              <i data-feather="send"> </i>
+            </button>
+            <div class="overlay" id="overlay"></div>
+            <div class="popup" id="popup">
+              <p>Listening...</p>
+              <div class="animation-container">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+              </div>
+
+              <!-- <button id="closePopup">Stop</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="call-content tabto">
+        <a class="icon-btn btn-outline-primary button-effect mobile-back mb-3" href="messenger.html#"><i
+            class="ti-angle-left"> </i></a>
+        
+      </div>
+    </div>
+    
+    <aside class="app-sidebar active">
+      <div class="apps">
+        
+      </div>
+      <div class="app-list"></div>
+    </aside>
+  </div>
+    <div class="modal fade add-popup msg-chat-modal" id="msgcallModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">
+               Select Language Here</h2>
+            <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <ul class="call-log-main custom-scroll">
+              <li class="active" data-language="en">
+                <div class="call-box">
+                  <div class="details">
+                    <h5>English</h5>
+                  </div>
+                </div>
+              </li>
+              <li data-language="hi">
+                <div class="call-box">
+                  <div class="details">
+                    <h5>हिंदी</h5>
+                  </div>
+                </div>
+              </li>
+              <li data-language="te">
+                <div class="call-box">
+                  <div class="details">
+                    <h5>తెలుగు</h5>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary button-effect btn-sm" id="micButton" type="button">Change Language</button>
+            <button class="btn btn-danger button-effect btn-sm" type="button" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script>
+    // CSRF token helper function
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function logoutConfirm() {
+      Swal.fire({
+          title: 'Are you sure?',
+          text: 'You will be logged out!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, log out!'
+      }).then((result) => {
+          if (result.isConfirmed) {
+              // Make a POST request to the log_out endpoint
+              fetch('/log_out', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'X-CSRFToken': getCookie('csrftoken')
+                  },
+                  body: JSON.stringify({})
+              })
+              .then(response => {
+                  if (response.ok) {
+                      // Redirect or refresh page after successful logout
+                      window.location.href = '/'; // Redirect to homepage or login page
+                  } else {
+                      Swal.fire('Error!', 'Logout failed. Please try again.', 'error');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  Swal.fire('Error!', 'Something went wrong.', 'error');
+              });
+          }
+      });
+    }
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+  <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/tippy-bundle.iife.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'js/easytimer.min.js' %}"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/feather-icon/feather.min.js' %}"></script>
+  <script src="{% static 'js/feather-icon/feather-icon.js' %}"></script>
+  
+  <script src="{% static 'js/date-picker/datepicker.js' %}"></script>
+  <script src="{% static 'js/date-picker/datepicker.en.js' %}"></script>
+  <script src="{% static 'js/date-picker/datepicker.custom.js' %}"></script>
+  <script src="{% static 'js/tour/intro.js' %}"></script>
+  <script src="{% static 'js/tour/intro-init.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+  <script src="{% static 'js/zoom-gallery.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/speech.js' %}"></script>
+</body>
+
+</html>
