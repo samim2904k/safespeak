@@ -109,8 +109,5 @@ curl -X POST http://localhost:8000/detectBully/ -H "Content-Type: application/js
 
 ---
 
-## 📄 License
-
-MIT License © 2025 Samim Khan
 
 <p align="center"><i>Made with ❤️ for a safer web</i></p>
