@@ -18,7 +18,7 @@
 
 | Multilingual Chat |
 |-------------------|
-| ![Chat](./screenshots/chat.png) |
+| ![Chat](./screenshots/safespeak.png) |
 
 ---
 
