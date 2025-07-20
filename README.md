@@ -16,11 +16,9 @@
 
 ## 📸 Preview
 
-> Add screenshots or GIFs of the interface and voice message input system here:
-
-| Multilingual Chat | Detection Result | Voice Input |
-|-------------------|------------------|-------------|
-| ![Chat](./screenshots/chat.png) | ![Detection](./screenshots/result.png) | ![Voice](./screenshots/voice.png) |
+| Multilingual Chat |
+|-------------------|
+| ![Chat](./screenshots/chat.png) |
 
 ---
 
